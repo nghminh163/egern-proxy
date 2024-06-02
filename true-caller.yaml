@@ -1,0 +1,15 @@
+mitm:
+  enabled: true
+  ca_p12: egern.p12
+  ca_passphrase: egern
+  hostnames:
+    - premium-noneu.truecaller.com
+
+scriptings:
+  - http_response:
+      name: TrueCaller
+      match: ^https:\/\/premium-noneu\.truecaller\.com\/v3\/subscriptions\/status$
+      script_url: https://test.nghminh163.dev/true-caller.js
+      body_required: true
+      update_interval: 5
+      debug: true
